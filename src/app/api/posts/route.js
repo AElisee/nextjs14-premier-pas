@@ -22,10 +22,13 @@ export async function POST(request) {
     text: body.text,
   });
   await newPost.save();
-  return new Response(JSON.stringify(newPost), {
-    hedears: {
-      "Content-Type": "application/json",
-    },
-    status: 201,
-  });
+  return new Response(
+    JSON.stringify({ message: "Nouveau post ajouté avec succès", newPost }),
+    {
+      hedears: {
+        "Content-Type": "application/json",
+      },
+      status: 201,
+    }
+  );
 }
